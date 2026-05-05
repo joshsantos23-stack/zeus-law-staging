@@ -1,0 +1,28 @@
+# ================================================================
+# ZEUS LAW FIRM — Netlify Redirects
+# Handles URL routing for staging and production
+# ================================================================
+
+# /practice-areas/ hub — redirect to car accident page until hub is built
+/practice-areas/    /car-accident-lawyer-los-angeles/    302
+
+# /blog/ — redirect to homepage until blog is built
+/blog/    /    302
+/blog     /    302
+
+# /disclaimer/ — redirect to contact page until disclaimer is built
+/disclaimer/    /contact/    302
+/disclaimer     /contact/    302
+
+# /privacy-policy/ — redirect to contact page until policy page is built
+/privacy-policy/    /contact/    302
+/privacy-policy     /contact/    302
+
+# Trailing slash normalization (Netlify handles most automatically,
+# these are fallbacks for edge cases)
+/results     /results/    301
+/reviews     /reviews/    301
+/about       /about/      301
+/attorneys   /attorneys/  301
+/contact     /contact/    301
+/faq         /faq/        301
