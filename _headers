@@ -1,0 +1,11 @@
+# ================================================================
+# ZEUS LAW FIRM — Netlify _headers
+# Staging environment — noindex enforced at HTTP header level
+# ================================================================
+# This file is a backup to netlify.toml headers.
+# Both approaches are used for belt-and-suspenders noindex coverage.
+
+/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
