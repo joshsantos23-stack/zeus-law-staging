@@ -1,0 +1,5 @@
+# ZEUS LAW FIRM — STAGING ROBOTS.TXT
+# Blocks ALL crawlers — staging environment only
+
+User-agent: *
+Disallow: /
