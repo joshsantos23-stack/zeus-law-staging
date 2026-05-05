@@ -1,0 +1,58 @@
+# ================================================================
+# ZEUS LAW FIRM — Netlify Staging Configuration
+# STAGING / REVIEW ONLY — Remove or replace before production
+# ================================================================
+
+[build]
+  publish = "."
+  # No build command needed — pure static site
+  ignore = "exit 0"
+
+# ----------------------------------------------------------------
+# STAGING SAFETY: Prevent all indexing via HTTP header
+# X-Robots-Tag is respected by Googlebot even without a meta tag
+# This covers ALL pages including any the meta tag might miss
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet"
+
+# ----------------------------------------------------------------
+# SECURITY HEADERS — apply to all pages
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    X-Frame-Options           = "SAMEORIGIN"
+    X-Content-Type-Options    = "nosniff"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=()"
+
+# ----------------------------------------------------------------
+# CACHE: CSS — short TTL for review flexibility
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# ----------------------------------------------------------------
+# CACHE: JS
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# ----------------------------------------------------------------
+# CACHE: Assets — slightly longer for images/fonts
+# ----------------------------------------------------------------
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ----------------------------------------------------------------
+# PRETTY URLS: Netlify maps /page/ to page.html automatically
+# ----------------------------------------------------------------
